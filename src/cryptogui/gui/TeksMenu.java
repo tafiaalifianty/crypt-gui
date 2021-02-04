@@ -5,6 +5,7 @@ import cryptogui.utility.Playfair;
 import cryptogui.utility.Vigenere;
 import cryptogui.utility.VigenereAutoKey;
 import cryptogui.utility.VigenereExtended;
+import cryptogui.utility.Affine;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -76,8 +77,8 @@ public class TeksMenu extends javax.swing.JFrame {
         jTextArea2.setRows(5);
         jScrollPane2.setViewportView(jTextArea2);
 
-        jComboBox1.setMaximumRowCount(4);
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vigenere Cipher (26)", "Vigenere Auto-Key (26)", "Vigenere Extended (256)", "PlayFair Cipher (26)" }));
+        jComboBox1.setMaximumRowCount(5);
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Vigenere Cipher (26)", "Vigenere Auto-Key (26)", "Vigenere Extended (256)", "PlayFair Cipher (26)", "Affine Cipher (26)" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -259,6 +260,9 @@ public class TeksMenu extends javax.swing.JFrame {
                     break;
                 case 3:
                     crypt = new Playfair(key);
+                    break;
+                case 4:
+                    crypt = new Affine(key);
                     break;
             }
             if(crypt != null){
